@@ -130,7 +130,7 @@ namespace TP1_ADO
             ado.dr.Close();
         }
         DataTable dataExporter = new DataTable();
-        public void ExporterDonnees()
+        public void ExporterDonneesText()
         {
             ado.cmd.CommandText = "select * from STAGIAIRE1";
             ado.cmd.Connection = ado.con;
@@ -152,6 +152,70 @@ namespace TP1_ADO
                     {
                         streamWriter.WriteLine(dataExporter.Rows[i][0].ToString() + ";" + dataExporter.Rows[i][1].ToString() + ";" + dataExporter.Rows[i][2].ToString() + ";"+ dataExporter.Rows[i][3].ToString() + ";" + dataExporter.Rows[i][4].ToString() + ";");
                     }
+                    streamWriter.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Erreur d'Exportation !");
+                }
+            }
+            ado.dr.Close();
+        }
+        public void ExporterDonnesHTML() 
+        {
+            ado.cmd.CommandText = "select * from STAGIAIRE1";
+            ado.cmd.Connection = ado.con;
+            ado.dr = ado.cmd.ExecuteReader();
+            //On mit les données retournées dans la variable dataExporter
+            dataExporter.Load(ado.dr);
+            if (MessageBox.Show("Voulez vous vraiment enregistrer vos données ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    string chemin = "";
+                    saveFileDialog1.Filter = "html files |.*html";
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        chemin = saveFileDialog1.FileName;
+                    }
+                    StreamWriter streamWriter = new StreamWriter(chemin);
+                    FileInfo info = new FileInfo(chemin);
+                    StringBuilder sb = new StringBuilder(); //Pour crée l'arbre de html
+                    sb.AppendFormat("<html>");
+                    sb.AppendFormat("<head>");
+                    sb.AppendFormat("<title>Gestion des stagiaires</title>");
+                    sb.AppendFormat("<meta charest='UTF-8'/>");
+                    sb.AppendFormat("</head>");
+                    sb.AppendFormat("<body>");
+                    sb.AppendFormat("<table border=1 cellspacing=10 cellpadding=10 style='border-collapse:collapse';>");
+                    sb.AppendFormat("<thead>");
+                    sb.AppendFormat("<tr>");
+                    foreach (DataColumn c in dataExporter.Columns)
+                    {
+                        sb.AppendFormat("<th> {0} </th>", c.ColumnName);
+                    }
+                    sb.AppendFormat("</tr>");
+                    sb.AppendFormat("</thead>");
+                    sb.AppendFormat("<tr>");
+                    foreach(DataRow r in dataExporter.Rows)//Pour chaque Rows j'ajoute une balise <tr>
+                    {
+                        sb.AppendFormat("<tr>");
+                        for(int i = 0; i < dataExporter.Columns.Count; i++)
+                        {
+                            sb.AppendFormat("<td> {0} </td>", r[i].ToString());
+                        }
+                        sb.AppendFormat("</tr>");
+                    }
+
+
+
+                    //sb.AppendFormat("</thead>");
+                    sb.AppendFormat("</table>");
+                    sb.AppendFormat("</body>");
+                    sb.AppendFormat("</html>");
+                    //On écrit de le fichier streamWriter ce qu'on écrit
+                    streamWriter.WriteLine(sb.ToString());
+                    MessageBox.Show("l'exportation a bien réussi !");
                     streamWriter.Close();
                 }
                 catch
@@ -284,7 +348,6 @@ namespace TP1_ADO
                 MessageBox.Show("Vous êtes sur le dernier enregistrement !");
                 cpt--;
             }
-
         }
 
         private void btnPrecedent_Click(object sender, EventArgs e)
@@ -303,7 +366,12 @@ namespace TP1_ADO
 
         private void btnExporterDonnee_Click(object sender, EventArgs e)
         {
-            ExporterDonnees();
+            ExporterDonneesText();
+        }
+
+        private void btnExpoterDonnesHTML_Click(object sender, EventArgs e)
+        {
+            ExporterDonnesHTML();
         }
     }
 }

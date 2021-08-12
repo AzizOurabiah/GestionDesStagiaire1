@@ -53,6 +53,7 @@ namespace TP1_ADO
             this.Mat = new System.Windows.Forms.Label();
             this.btnExporterDonnee = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnExpoterDonnesHTML = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,13 +281,25 @@ namespace TP1_ADO
             // 
             this.btnExporterDonnee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExporterDonnee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExporterDonnee.Location = new System.Drawing.Point(215, 459);
+            this.btnExporterDonnee.Location = new System.Drawing.Point(27, 446);
             this.btnExporterDonnee.Name = "btnExporterDonnee";
-            this.btnExporterDonnee.Size = new System.Drawing.Size(106, 67);
+            this.btnExporterDonnee.Size = new System.Drawing.Size(133, 67);
             this.btnExporterDonnee.TabIndex = 24;
-            this.btnExporterDonnee.Text = "Exporter données";
+            this.btnExporterDonnee.Text = "Exporter données Text";
             this.btnExporterDonnee.UseVisualStyleBackColor = false;
             this.btnExporterDonnee.Click += new System.EventHandler(this.btnExporterDonnee_Click);
+            // 
+            // btnExpoterDonnesHTML
+            // 
+            this.btnExpoterDonnesHTML.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnExpoterDonnesHTML.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExpoterDonnesHTML.Location = new System.Drawing.Point(215, 446);
+            this.btnExpoterDonnesHTML.Name = "btnExpoterDonnesHTML";
+            this.btnExpoterDonnesHTML.Size = new System.Drawing.Size(133, 67);
+            this.btnExpoterDonnesHTML.TabIndex = 26;
+            this.btnExpoterDonnesHTML.Text = "Exporter données HTML";
+            this.btnExpoterDonnesHTML.UseVisualStyleBackColor = false;
+            this.btnExpoterDonnesHTML.Click += new System.EventHandler(this.btnExpoterDonnesHTML_Click);
             // 
             // Form1
             // 
@@ -294,6 +307,7 @@ namespace TP1_ADO
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1257, 750);
+            this.Controls.Add(this.btnExpoterDonnesHTML);
             this.Controls.Add(this.btnExporterDonnee);
             this.Controls.Add(this.Mat);
             this.Controls.Add(this.cmbMat);
@@ -355,6 +369,7 @@ namespace TP1_ADO
         private System.Windows.Forms.Label Mat;
         private System.Windows.Forms.Button btnExporterDonnee;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnExpoterDonnesHTML;
     }
 }
 

@@ -2351,11 +2351,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aziz\\source\\repos\\Formation_ADO\\TP1-ADO\\TP1-ADO.csproj",
+      "projectUniqueName": "C:\\Users\\Aziz\\Desktop\\Application Gesion des Stagiaires\\TP1-ADO\\TP1-ADO.csproj",
       "projectName": "TP1-ADO",
-      "projectPath": "C:\\Users\\Aziz\\source\\repos\\Formation_ADO\\TP1-ADO\\TP1-ADO.csproj",
+      "projectPath": "C:\\Users\\Aziz\\Desktop\\Application Gesion des Stagiaires\\TP1-ADO\\TP1-ADO.csproj",
       "packagesPath": "C:\\Users\\Aziz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aziz\\source\\repos\\Formation_ADO\\TP1-ADO\\obj\\",
+      "outputPath": "C:\\Users\\Aziz\\Desktop\\Application Gesion des Stagiaires\\TP1-ADO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
